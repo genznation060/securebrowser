@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.SecureBrowse" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand colors -->
+        <item name="colorPrimary">@color/brand_navy</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/brand_navy_light</item>
+        <item name="colorOnPrimaryContainer">@color/white</item>
+        
+        <!-- Secondary brand colors -->
+        <item name="colorSecondary">@color/brand_cyan</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/brand_cyan_light</item>
+        <item name="colorOnSecondaryContainer">@color/brand_navy</item>
+        
+        <!-- Background and surface -->
+        <item name="android:windowBackground">@color/bg_main</item>
+        <item name="colorSurface">@color/surface_card</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+
+        <!-- Status bar and navigation bar -->
+        <item name="android:statusBarColor">@color/brand_navy_dark</item>
+        <item name="android:navigationBarColor">@color/brand_navy_dark</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="Theme.MyApplication" parent="Theme.SecureBrowse" />
+</resources>

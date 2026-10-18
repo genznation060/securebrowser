@@ -1,0 +1,103 @@
+<resources>
+    <string name="app_name">SecureBrowse</string>
+    <string name="app_tagline">Restricted Kiosk &amp; Secure Browser</string>
+
+    <!-- Browser Controls -->
+    <string name="action_back">Back</string>
+    <string name="action_forward">Forward</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="action_stop">Stop</string>
+    <string name="action_home">Home</string>
+    <string name="action_admin">Admin Settings</string>
+    <string name="action_go">Go</string>
+    <string name="url_hint">Enter approved URL or domain…</string>
+    <string name="loading">Loading…</string>
+    <string name="connection_secure">Secure (HTTPS)</string>
+    <string name="mode_normal_badge">Normal Mode</string>
+    <string name="mode_kiosk_badge">Locked Kiosk Mode</string>
+
+    <!-- Blocked Site Screen -->
+    <string name="blocked_title">Access Blocked</string>
+    <string name="blocked_subtitle">This website is not authorized by your administrator.</string>
+    <string name="blocked_target_label">Requested Address:</string>
+    <string name="blocked_reason_label">Security Policy Enforcement:</string>
+    <string name="btn_return_home">Return to Homepage</string>
+    <string name="btn_admin_unlock">Administrator Panel</string>
+    <string name="reason_unapproved_domain">The domain "%1$s" is not in the administrator-approved allowlist.</string>
+    <string name="reason_subdomain_disallowed">Subdomains of "%1$s" are not permitted by current policy.</string>
+    <string name="reason_http_blocked">Cleartext HTTP traffic is strictly blocked. Only secure HTTPS is permitted.</string>
+    <string name="reason_unsupported_scheme">Dangerous or unsupported URL protocol: "%1$s". Only HTTPS is permitted.</string>
+    <string name="reason_ssl_error">SSL/TLS certificate verification failed (%1$s). Connection terminated to protect data integrity.</string>
+    <string name="reason_renderer_crashed">WebView render process encountered an unexpected termination. Recovered safely.</string>
+
+    <!-- Admin Panel -->
+    <string name="admin_title">Administrator Console</string>
+    <string name="admin_auth_title">Administrator Verification</string>
+    <string name="admin_pin_prompt">Enter administrator PIN to access security settings</string>
+    <string name="admin_pin_setup_prompt">First-Time Setup: Create a new Administrator PIN (minimum 4 digits)</string>
+    <string name="admin_pin_hint">Admin PIN</string>
+    <string name="admin_pin_confirm_hint">Confirm PIN</string>
+    <string name="admin_pin_incorrect">Incorrect PIN. Access denied.</string>
+    <string name="admin_pin_mismatch">PINs do not match. Please try again.</string>
+    <string name="admin_pin_too_short">PIN must be at least 4 digits.</string>
+    <string name="admin_pin_updated">Administrator PIN updated successfully.</string>
+    <string name="btn_authenticate">Unlock Console</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_add">Add</string>
+    <string name="btn_delete">Delete</string>
+
+    <!-- Admin Sections -->
+    <string name="section_allowlist">Website Allowlist</string>
+    <string name="section_browser_config">Browser Policies &amp; Homepage</string>
+    <string name="section_kiosk">Dedicated Device &amp; Kiosk Mode</string>
+    <string name="section_backup">Import / Export Allowlist</string>
+    <string name="section_security_info">Security &amp; Device Limitations</string>
+
+    <string name="pref_homepage_label">Browser Homepage</string>
+    <string name="pref_homepage_hint">e.g. https://www.google.com</string>
+    <string name="pref_https_only">Enforce HTTPS Only</string>
+    <string name="pref_https_only_desc">Block unencrypted HTTP connections unconditionally</string>
+    <string name="pref_javascript">Enable Modern JavaScript</string>
+    <string name="pref_javascript_desc">Required for SPAs (React, Vue, Angular), DOM manipulation, and dynamic sites</string>
+    <string name="pref_clear_data">Clear Browsing Cache &amp; Storage</string>
+    <string name="pref_clear_data_desc">Erase cached web pages, cookies, and local web storage</string>
+    <string name="data_cleared">Browsing cache and cookies cleared.</string>
+
+    <!-- Allowlist Management -->
+    <string name="add_domain_title">Add Approved Domain</string>
+    <string name="dialog_domain_hint">Domain name (e.g. wikipedia.org)</string>
+    <string name="allow_subdomains_checkbox">Allow all subdomains (*.example.com)</string>
+    <string name="domain_description_hint">Description / Department (optional)</string>
+    <string name="domain_already_exists">Domain "%1$s" is already in the allowlist.</string>
+    <string name="domain_invalid">Invalid domain name format. Enter e.g. example.com or news.ycombinator.com</string>
+    <string name="domain_added">Approved domain added: %1$s</string>
+    <string name="domain_deleted">Domain removed: %1$s</string>
+    <string name="empty_allowlist">No approved domains configured. Add domains below.</string>
+
+    <!-- Kiosk / LockTask -->
+    <string name="kiosk_status_owner">Device Owner Status: %1$s</string>
+    <string name="kiosk_owner_active">PROVISIONED (Full Device Owner)</string>
+    <string name="kiosk_owner_inactive">NOT PROVISIONED (Unmanaged Device)</string>
+    <string name="kiosk_mode_active">Kiosk Mode: ACTIVE (App pinned/locked)</string>
+    <string name="kiosk_mode_inactive">Kiosk Mode: INACTIVE (Normal testing)</string>
+    <string name="btn_enter_kiosk">Start Kiosk Lockdown</string>
+    <string name="btn_exit_kiosk">Exit Kiosk Lockdown</string>
+    <string name="kiosk_started">Kiosk mode initiated.</string>
+    <string name="kiosk_stopped">Kiosk mode exited.</string>
+    <string name="kiosk_notice_unmanaged">On an unmanaged test device, entering kiosk mode uses Android Screen Pinning. To fully prevent users from exiting or accessing settings, provision the app as Device Owner via ADB or QR provisioning.</string>
+
+    <!-- Device Admin Receiver -->
+    <string name="device_admin_label">SecureBrowse Device Owner</string>
+    <string name="device_admin_description">Restricts device to dedicated kiosk web browser and prevents unauthorized access to external apps and unapproved websites.</string>
+
+    <!-- Disclosures & Limitations -->
+    <string name="disclaimer_title">Enterprise Security Boundaries</string>
+    <string name="disclaimer_text">• Browser-level allowlist strictly controls navigation inside SecureBrowse only.\n• On unmanaged personal devices, users may open other installed browsers (e.g. Chrome) unless provisioned as Android Enterprise Device Owner.\n• In Device Owner mode, LockTaskMode locks this app in foreground and disables Home, Recents, and Status Bar.\n• Approved websites may load resources (scripts, images, CDNs). SecureBrowse permits necessary assets while strictly preventing cross-site navigation, iframes to unapproved domains, and popups.\n• A local PIN protects app settings; device-wide tamper resistance requires Android Enterprise management and MDM network filtering.</string>
+
+    <string name="export_success">Allowlist copied to clipboard as JSON backup.</string>
+    <string name="import_title">Import Allowlist JSON</string>
+    <string name="import_hint">Paste valid JSON allowlist configuration</string>
+    <string name="import_success">Allowlist imported successfully (%1$d rules updated).</string>
+    <string name="import_error">Invalid JSON format or missing domain rules.</string>
+</resources>

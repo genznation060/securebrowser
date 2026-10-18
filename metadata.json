@@ -1,0 +1,6 @@
+{
+  "name": "SecureBrowse",
+  "description": "Restricted Android browser with allowlist domain security and enterprise kiosk lockdown mode",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
