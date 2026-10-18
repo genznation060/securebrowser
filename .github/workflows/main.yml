@@ -23,6 +23,8 @@ jobs:
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools platforms;android-36 build-tools;36.0.0'
 
       - name: Accept Android SDK Licenses
         run: |
@@ -30,8 +32,8 @@ jobs:
 
       - name: Build Debug APK
         run: |
-          # Always generate wrapper with the version required by AGP 9.1.1
-          # (repo already has the correct distributionUrl in gradle-wrapper.properties)
+          # Project already has correct gradle-wrapper.properties (9.3.1)
+          # but gradlew / gradle-wrapper.jar may be missing → generate them
           gradle wrapper --gradle-version 9.3.1
           chmod +x ./gradlew
           ./gradlew assembleDebug --stacktrace --no-daemon
