@@ -27,13 +27,31 @@ jobs:
           packages: 'platform-tools platforms;android-36 build-tools;36.0.0'
 
       - name: Accept Android SDK Licenses
+        run: yes | sdkmanager --licenses || true
+
+      - name: Create missing debug keystore
         run: |
-          yes | sdkmanager --licenses || true
+          # The project references ${rootDir}/debug.keystore
+          keytool -genkeypair \
+            -alias androiddebugkey \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -keystore debug.keystore \
+            -storepass android \
+            -keypass android \
+            -dname "CN=Android Debug,O=Android,C=US" \
+            -noprompt
+
+      - name: Create empty .env if missing
+        run: |
+          # Secrets Gradle Plugin needs .env or .env.example
+          [ -f .env ] || touch .env
+          [ -f .env.example ] || touch .env.example
 
       - name: Build Debug APK
         run: |
-          # Project already has correct gradle-wrapper.properties (9.3.1)
-          # but gradlew / gradle-wrapper.jar may be missing → generate them
+          # Generate wrapper with the version required by AGP 9.1.1
           gradle wrapper --gradle-version 9.3.1
           chmod +x ./gradlew
           ./gradlew assembleDebug --stacktrace --no-daemon
